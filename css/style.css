@@ -1,0 +1,14 @@
+body{
+    background-image: url("../images/todo.jpg");
+    background-size:cover;
+}
+
+#form1{
+    
+    background-size:cover;
+    padding: 30px;
+}
+
+#demo{
+    color: black;
+}
