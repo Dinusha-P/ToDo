@@ -5,7 +5,6 @@ form.addEventListener('submit', function (event) {
     // check password and username
     login(username.value,password.value,redirect);
 });
-//login using callback function
 function login(user,psw,callback)
 {
 
@@ -20,4 +19,8 @@ function login(user,psw,callback)
 function redirect()
 {
     form.action="home.html"
+}
+if (!validate()) {
+    // Then we prevent the form from being sent by canceling the event
+    event.preventDefault();
 }
