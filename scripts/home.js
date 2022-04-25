@@ -9,9 +9,9 @@ function ajax(){
             var output="";
             for(var i=0;i<response.length;i++){ 
                 if(response[i].completed==true)
-                    output+= "<input class='form-check-input' type='checkbox' disabled checked>"  +response[i].title+"<br><hr>";    
+                    output+= "<input class='form-check-input' name='check'  type='checkbox' disabled checked>"  +response[i].title+"<br><hr>";    
                 else
-                    output+= "<input class='form-check-input check' type='checkbox' >  " +response[i].title+"<br><hr>";   
+                    output+= "<input class='form-check-input' name='check'onchange=taskCounter().then(fiveTasks).catch(function(e){})  type='checkbox' >  " +response[i].title+"<br><hr>";   
 
             }
             document.getElementById("demo").innerHTML= output;
@@ -23,16 +23,33 @@ function ajax(){
     }
     ajax();
  //Validate function
- var count=0
- var checkbox = document.getElementById("demo");
- checkbox.addEventListener('change', function() {
-    if (this.checked) {
-      console.log("Checkbox is checked..");
-    } else {
-      console.log("Checkbox is not checked..");
-    }
-  });
+ function taskCounter()
+ {
+     var i=0;
+     var count=0;
+     check = document.getElementsByName("check");
+     return new Promise(function(resolve,reject){
+        for(i=0;i<check.length;i++)
+        {
+            if(check[i].checked==true && check[i].disabled==false){
+                count=count+1;
+            }
+        }
+        if(count==5){
+            resolve();
+        }  
+        else{
+            reject();
+        } 
+    })
+
+ }
+
+ function fiveTasks(){
+    alert("Congrats. 5 Tasks have been Successfully Completed ");
+ }
 
   function redirect(){
     location.href = "index.html";
   }
+
