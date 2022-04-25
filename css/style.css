@@ -4,11 +4,13 @@ body{
 }
 
 #form1{
-    
-    background-size:cover;
+    background-color:rgb(33, 53, 88) ; 
     padding: 30px;
 }
 
 #demo{
-    color: black;
+    color: white;
+}
+.card{
+    background-color:rgb(33, 53, 88) ;
 }
