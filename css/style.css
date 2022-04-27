@@ -1,6 +1,7 @@
 body{
     background-image: url("../images/todo.jpg");
     background-size:cover;
+    height: 100vh;
 }
 
 #form1{
